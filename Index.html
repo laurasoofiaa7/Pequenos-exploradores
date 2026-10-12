@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pequeños Exploradores</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background: #fff9f4;
+      color: #51445c;
+    }
+
+    header {
+      background: #f8d9e8;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    header h1 {
+      color: #7c4d79;
+      font-size: clamp(27px, 5vw, 42px);
+      margin: 8px 0;
+    }
+
+    header p {
+      margin: 8px auto;
+      max-width: 550px;
+      line-height: 1.6;
+    }
+
+    .mascota {
+      font-size: 75px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 16px;
+      background: white;
+    }
+
+    button {
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      border: 0;
+      border-radius: 18px;
+      padding: 13px 18px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .docente { background: #f5c4dd; }
+    .infantil { background: #bdebdc; }
+    .movimiento { background: #ffe4a3; }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 22px 16px 40px;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      margin: 18px 0;
+      box-shadow: 0 5px 18px #69508012;
+    }
+
+    .panel h2 {
+      color: #805c91;
+      margin-top: 0;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .tarjeta {
+      border-radius: 18px;
+      padding: 18px;
+      background: #fff0f6;
+    }
+
+    .tarjeta:nth-child(2) { background: #e5f8ef; }
+    .tarjeta:nth-child(3) { background: #fff3d4; }
+
+    .tarjeta h3 { margin-top: 0; }
+
+    .actividad {
+      margin-top: 12px;
+      padding: 12px;
+      background: #f5effa;
+      border-radius: 14px;
+    }
+
+    .opciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .opciones button {
+      background: #eee4fa;
+    }
+
+    .resultado {
+      font-weight: bold;
+      min-height: 24px;
+    }
+
+    footer {
+      background: #e2f3eb;
+      padding: 22px;
+      text-align: center;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="inicio">
+    <div class="mascota" aria-label="Ranita mascota">🐸</div>
+    <h1>¡Hola, pequeños exploradores!</h1>
+    <p>
+      Un mundo lleno de cuentos, juegos y aventuras
+      para aprender mientras nos divertimos. 🌈
+    </p>
+  </header>
+
+  <nav aria-label="Secciones principales">
+    <button class="docente" onclick="mostrar('profesores')">
+      👩🏻‍🏫 Espacio docente
+    </button>
+    <button class="infantil" onclick="mostrar('ninos')">
+      🧸 ¡Quiero aprender!
+    </button>
+    <button class="movimiento" onclick="mostrar('movimiento')">
+      🏃🏻 Zona de movimiento
+    </button>
+  </nav>
+
+  <main>
+    <section class="panel" id="bienvenida">
+      <h2>🌟 ¿Qué vamos a descubrir hoy?</h2>
+      <p>Elige tu aventura y comencemos a aprender.</p>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h3>📚 Cuentos mágicos</h3>
+          Historias para imaginar, compartir y soñar.
+        </div>
+        <div class="tarjeta">
+          <h3>🎨 Juegos divertidos</h3>
+          Aprende números, colores y figuras.
+        </div>
+        <div class="tarjeta">
+          <h3>💗 Mundo de emociones</h3>
+          Descubre lo que sientes y cómo expresarlo.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="profesores" hidden>
+      <h2>👩🏻‍🏫 Espacio docente</h2>
+      <p>Ideas para acompañar el aprendizaje de los niños.</p>
+
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h3>📖 Cuentos</h3>
+          <p><b>Actividad:</b> La ranita curiosa.</p>
+          <p><b>Objetivo:</b> Fomentar la imaginación y la escucha.</p>
+          <p><b>Materiales:</b> Un cuento ilustrado.</p>
+          <p><b>Instrucciones:</b> Lee la historia y pregunta qué creen
+          que pasará después.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h3>✂️ Actividades</h3>
+          <p><b>Objetivo:</b> Reconocer colores y figuras.</p>
+          <p><b>Materiales:</b> Papel de colores y pegamento escolar.</p>
+          <p><b>Instrucciones:</b> Invita a los niños a crear un dibujo
+          usando círculos, cuadrados y triángulos.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h3>📝 Guías educativas</h3>
+          <p><b>Objetivo:</b> Reconocer y expresar emociones.</p>
+          <p><b>Materiales:</b> Tarjetas con caras y emociones.</p>
+          <p><b>Instrucciones:</b> Muestra cada tarjeta y conversa
+          con los niños sobre cómo se sienten.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="ninos" hidden>
+      <h2>🧸 ¡Vamos a jugar y aprender!</h2>
+
+      <div class="actividad">
+        <h3>🔢 Juego de números</h3>
+        <p>¿Cuánto es 2 + 1?</p>
+        <div class="opciones">
+          <button onclick="responder('numero', 2)">2</button>
+          <button onclick="responder('numero', 3)">3</button>
+          <button onclick="responder('numero', 4)">4</button>
+        </div>
+        <p class="resultado" id="resultadoNumero" aria-live="polite"></p>
+      </div>
+
+      <div class="actividad">
+        <h3>🎨 Juego de colores</h3>
+        <p>¿De qué color es una banana madura?</p>
+        <div class="opciones">
+          <button onclick="responder('color', 'azul')">💙 Azul</button>
+          <button onclick="responder('color', 'amarillo')">💛 Amarillo</button>
+          <button onclick="responder('color', 'rojo')">❤️ Rojo</button>
+        </div>
+        <p class="resultado" id="resultadoColor" aria-live="polite"></p>
+      </div>
+
+      <div class="actividad">
+        <h3>🔺 Juego de figuras</h3>
+        <p>¿Cuál de estas figuras tiene tres lados?</p>
+        <div class="opciones">
+          <button onclick="responder('figura', 'circulo')">⚪ Círculo</button>
+          <button onclick="responder('figura', 'triangulo')">🔺 Triángulo</button>
+          <button onclick="responder('figura', 'cuadrado')">🟦 Cuadrado</button>
+        </div>
+        <p class="resultado" id="resultadoFigura" aria-live="polite"></p>
+      </div>
+
+      <div class="actividad">
+        <h3>💗 ¿Cómo te sientes hoy?</h3>
+        <p>¡Todas las emociones merecen ser escuchadas!</p>
+        <div class="opciones">
+          <button onclick="sentir('😊 Feliz')">😊 Feliz</button>
+          <button onclick="sentir('😢 Triste')">😢 Triste</button>
+          <button onclick="sentir('😡 Enojado')">😡 Enojado</button>
+          <button onclick="sentir('😌 Tranquilo')">😌 Tranquilo</button>
+        </div>
+        <p class="resultado" id="emocion" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="panel" id="movimiento" hidden>
+      <h2>🏃🏻 ¡Es hora de movernos!</h2>
+      <p>Pequeñas pausas para activar el cuerpo en el salón.</p>
+
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h3>🦋 Mariposas al vuelo</h3>
+          <p>Abre y cierra los brazos como alas durante 20 segundos.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>🐸 Saltos de ranita</h3>
+          <p>Haz cinco saltitos suaves en tu lugar, dejando espacio
+          entre tus compañeros.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>🌳 Árbol que se mueve</h3>
+          <p>Estira los brazos hacia arriba y balancea suavemente
+          el cuerpo de un lado al otro.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="panel" id="volver" hidden>
+      <button class="docente" onclick="mostrar('inicio')">
+        🏡 Volver al inicio
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <p>🌈 Pequeños Exploradores</p>
+    <p>Aprender, imaginar y crecer juntos. 💗</p>
+  </footer>
+
+  <script>
+    function mostrar(seccion) {
+      const ids = ['profesores', 'ninos', 'movimiento'];
+
+      document.getElementById('bienvenida').hidden =
+        seccion !== 'inicio';
+
+      ids.forEach(function(id) {
+        document.getElementById(id).hidden = id !== seccion;
+      });
+
+      document.getElementById('volver').hidden =
+        seccion === 'inicio';
+
+      if (seccion === 'inicio') {
+        document.getElementById('bienvenida').hidden = false;
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function responder(tipo, respuesta) {
+      const correctas = {
+        numero: 3,
+        color: 'amarillo',
+        figura: 'triangulo'
+      };
+
+      const mensajes = {
+        numero: 'resultadoNumero',
+        color: 'resultadoColor',
+        figura: 'resultadoFigura'
+      };
+
+      const salida = document.getElementById(mensajes[tipo]);
+
+      if (respuesta === correctas[tipo]) {
+        salida.textContent = '¡Muy bien! 🎉 ¡Respuesta correcta!';
+      } else {
+        salida.textContent = '¡Casi! 💗 Inténtalo otra vez.';
+      }
+    }
+
+    function sentir(emocion) {
+      document.getElementById('emocion').textContent =
+        'Hoy te sientes: ' + emocion +
+        '. ¡Gracias por compartirlo! 💗';
+    }
+  </script>
+</body>
+  </html>
+  
